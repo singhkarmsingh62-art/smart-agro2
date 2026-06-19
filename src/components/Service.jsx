@@ -138,7 +138,7 @@ const ServicePage = () => {
                 📧 <span className="font-semibold">Email:</span> singhkarmsingh62@gmail.com
               </p>
               <p>
-                📍 <span className="font-semibold">Address:</span>Ferozepur cantt Punjab, India
+                📍 <span className="font-semibold">Address:</span>Ferozepur Cantt, Punjab, India
               </p>
               <p>
                 ⏰ <span className="font-semibold">Working Hours:</span> 9 AM – 6 PM
@@ -146,15 +146,15 @@ const ServicePage = () => {
             
 
             <div className="mt-6">
-             <button
-  onClick={() => window.location.href = "tel:+911234567890"}
+           <button
+  onClick={() => window.open("tel:+917717447908")}
   className="w-full cursor-pointer bg-orange-400 text-white py-2 rounded-lg font-semibold hover:bg-orange-500 transition"
 >
   Get Support
 </button>
 
 <button
-  onClick={() => window.open("https://wa.me/911234567890", "_blank")}
+  onClick={() => window.open("https://wa.me/917717447908", "_blank")}
   className="w-full bg-orange-400 cursor-pointer mt-5 text-white py-2 rounded-lg font-semibold hover:bg-orange-500 transition"
 >
   Chat on WhatsApp
