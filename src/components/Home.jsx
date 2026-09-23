@@ -10,7 +10,7 @@ const categories = [
 
     {
     name: "Straw Reaper",
-    image: "https://media.istockphoto.com/id/122705686/photo/tractor-collecting-haystack-in-the-field.jpg?s=1024x1024&w=is&k=20&c=YsRhDsO_nGrcifHXT8j57jxLl_RAen2aVQ1pvReucPY=",
+    image: "https://5.imimg.com/data5/SELLER/Default/2026/1/579212997/MG/YA/PR/252734488/straw-reaper-63-inch-1000x1000.png",
     },
 
    {
@@ -43,37 +43,19 @@ const products = [
 
    {
     name: "Malkit 997",
-    price: "₹26,50,000",
+    price: "₹29,50,000",
     categories:"Harvester",
     image: "https://5.imimg.com/data5/SELLER/Default/2025/5/513947610/DP/HZ/CK/246477778/malkit-997-deluxe-self-propelled-combine-harvester-1000x1000.jpeg",
-    description: <p>Engine: 133 HP (Ashok Leyland engine, 6 cylinders, water-cooled).
-                  Cutting Width: 14 feet (4500 mm).
-                  Capacity: ~4.5 acres/hr (Wheat), ~3.5 acres/hr (Paddy).
-                  Straw Walkers: 5 (facilitates efficient separation).
-                  Fuel Tank: 340 Liters.
-                  Grain Tank: 2.64 (or 2.50 in some variants).
-                  Steering: Hydrostatic.
-                  Tyres: Front 18.4/15-30, Rear 9.00-16.
-                  Weight: Approximately 6,300 kg.
-                  Price: ~₹26,50,000 - ₹27,50,000 (excluding taxes). 
+    description: <p>The Malkit 997 Deluxe is a heavy-duty, self-propelled, multi-crop combine harvester primarily used for wheat, paddy, and corn. Priced around ₹29 Lakhs, it features a powerful 101 HP Ashok Leyland engine and delivers an impressive working output of 3 to 4 acres per hour. 
 
                     </p>
   },
   {
     name: "Kartar 4000",
-    price: "₹21,50,000",
+    price: "₹25,50,000",
     categories:"Harvester",
     image: "https://5.imimg.com/data5/SELLER/Default/2023/1/OT/RV/LJ/182090528/kartar-4000-combine-harvester-1000x1000.jpg",
-    description: <p>Engine: 133 HP (Ashok Leyland engine, 6 cylinders, water-cooled).
-                  Cutting Width: 14 feet (4500 mm).
-                  Capacity: ~4.5 acres/hr (Wheat), ~3.5 acres/hr (Paddy).
-                  Straw Walkers: 5 (facilitates efficient separation).
-                  Fuel Tank: 340 Liters.
-                  Grain Tank: 2.64 (or 2.50 in some variants).
-                  Steering: Hydrostatic.
-                  Tyres: Front 18.4/15-30, Rear 9.00-16.
-                  Weight: Approximately 6,300 kg.
-                  Price: ~₹26,50,000 - ₹27,50,000 (excluding taxes). 
+    description: <p>The Kartar 4000 is a heavy-duty, self-propelled, multi-crop combine harvester designed for large-scale farming. Powered by a robust engine (101 HP to 133 HP), it features a 14-foot cutter bar and can harvest 2.5 to 4 acres per hour. Prices range from ₹25.7 Lakh to ₹37.5 Lakh, depending on the model and cabin configuration. 
 
                     </p>
   },
@@ -170,17 +152,8 @@ const products = [
             onClick={() => navigate("/service")}
            >Book a Repair</button>
           </div>
-{/* 
-         <div className="hidden md:block relative w-[400]  ">
-      <video 
-       src="https://media.istockphoto.com/id/2191480631/video/harvesting-barley-in-farmland-in-autumn-slow-motion-shot-with-harvest-machine-beautiful.mp4?s=mp4-640x640-is&k=20&c=rVEdBZ9Y-WvXCFW1-02WJ7afbht-DLMQ261SETzfnZ0="
-       autoPlay
-       loop
-       muted
-      className="w-[330px] rounded-xl shadow-lg"  
-    />
-  
-     </div>  */}
+
+ 
 
      </div>
     </section>
@@ -265,7 +238,7 @@ const products = [
         </div>
         </div>
         </div>
-        <button onClick={() => setSelectedItem(null)} className="mt-10 w-full bg-slate-900 text-white py-4 rounded-2xl font-bold hover:bg-black transition shadow-lg">Close View</button>
+        <button onClick={() => setSelectedItem(null)} className="mt-10 w-full bg-orange-500 text-white py-4 rounded-2xl font-bold hover:bg-orange-600 transition shadow-lg">Close View</button>
         </div>
         </div>
         )}

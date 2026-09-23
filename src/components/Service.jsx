@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
+const API_URL = "https://smart-agro-backend-08do.onrender.com";
+
 const ServicePage = () => {
   const [machineName, setMachineName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [success, setSuccess] = useState(false);
-
-  
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -18,7 +18,7 @@ const ServicePage = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!machineName || !description) {
@@ -26,19 +26,40 @@ const ServicePage = () => {
       return;
     }
 
-    const formData = {
+    const data = {
       machineName,
       description,
-      image,
+      image: image?.name,
     };
 
-    console.log(formData);
+    try {
+      const res = await fetch(`${API_URL}/api/service/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    setSuccess(true);
-    setMachineName("");
-    setDescription("");
-    setImage(null);
-    setPreview(null);
+      const result = await res.json();
+
+      console.log(result);
+
+      if (!res.ok) {
+        alert(result.message || "Failed to submit request");
+        return;
+      }
+
+      setSuccess(true);
+
+      setMachineName("");
+      setDescription("");
+      setImage(null);
+      setPreview(null);
+    } catch (error) {
+      console.log(error);
+      alert("Server error");
+    }
   };
 
   return (
@@ -50,12 +71,8 @@ const ServicePage = () => {
             "url('https://images.unsplash.com/photo-1565647952915-9644fcd446a4?q=80&w=870&auto=format&fit=crop')",
         }}
       >
-       
-
-        
         <div className="flex flex-col md:flex-row gap-6 mt-20 w-full max-w-5xl">
 
-          
           <div className="bg-white shadow-2xl rounded-2xl p-8 w-full md:w-1/2">
             <h2 className="text-3xl font-bold text-orange-500 text-center mb-6">
               Agro-Smart Service Request
@@ -66,6 +83,7 @@ const ServicePage = () => {
                 <label className="block text-gray-700 font-medium mb-1">
                   Machine Name
                 </label>
+
                 <input
                   type="text"
                   value={machineName}
@@ -79,6 +97,7 @@ const ServicePage = () => {
                 <label className="block text-gray-700 font-medium mb-1">
                   Problem Description
                 </label>
+
                 <textarea
                   rows="4"
                   value={description}
@@ -92,6 +111,7 @@ const ServicePage = () => {
                 <label className="block text-gray-700 font-medium mb-1">
                   Upload Image
                 </label>
+
                 <input
                   type="file"
                   accept="image/*"
@@ -123,51 +143,59 @@ const ServicePage = () => {
             )}
           </div>
 
-          
           <div className="bg-white shadow-2xl rounded-2xl p-4 w-full md:w-1/2 flex flex-col justify-center">
-           
 
             <div className="space-y-9 text-gray-700 mb-7 mt-5 text-lg">
-                 <h2 className="text-3xl font-bold  text-orange-500 text-center ">
-              Contact Us
-            </h2>
-              <p>
-                📞 <span className="font-semibold ">Phone:</span> +91 77174-47908
-              </p>
-              <p>
-                📧 <span className="font-semibold">Email:</span> singhkarmsingh62@gmail.com
-              </p>
-              <p>
-                📍 <span className="font-semibold">Address:</span>Ferozepur Cantt, Punjab, India
-              </p>
-              <p>
-                ⏰ <span className="font-semibold">Working Hours:</span> 9 AM – 6 PM
-              </p>
-            
+              <h2 className="text-3xl font-bold text-orange-500 text-center">
+                Contact Us
+              </h2>
 
-            <div className="mt-6">
-           <button
-  onClick={() => window.open("tel:+917717447908")}
-  className="w-full cursor-pointer bg-orange-400 text-white py-2 rounded-lg font-semibold hover:bg-orange-500 transition"
->
-  Get Support
-</button>
+              <p>
+                📞 <span className="font-semibold">Phone:</span>{" "}
+                +91 77174-47908
+              </p>
 
-<button
-  onClick={() => window.open("https://wa.me/917717447908", "_blank")}
-  className="w-full bg-orange-400 cursor-pointer mt-5 text-white py-2 rounded-lg font-semibold hover:bg-orange-500 transition"
->
-  Chat on WhatsApp
-</button>
-</div>
+              <p>
+                📧 <span className="font-semibold">Email:</span>{" "}
+                singhkarmsingh62@gmail.com
+              </p>
 
+              <p>
+                📍 <span className="font-semibold">Address:</span>{" "}
+                Ferozepur Cantt, Punjab, India
+              </p>
 
+              <p>
+                ⏰ <span className="font-semibold">Working Hours:</span>{" "}
+                9 AM – 6 PM
+              </p>
+
+              <div className="mt-6">
+                <button
+                  onClick={() => window.open("tel:+917717447908")}
+                  className="w-full cursor-pointer bg-orange-400 text-white py-2 rounded-lg font-semibold hover:bg-orange-500 transition"
+                >
+                  Get Support
+                </button>
+
+                <button
+                  onClick={() =>
+                    window.open(
+                      "https://wa.me/917717447908",
+                      "_blank"
+                    )
+                  }
+                  className="w-full bg-orange-400 cursor-pointer mt-5 text-white py-2 rounded-lg font-semibold hover:bg-orange-500 transition"
+                >
+                  Chat on WhatsApp
+                </button>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
-
-      </div>
+    </div>
   );
 };
 
